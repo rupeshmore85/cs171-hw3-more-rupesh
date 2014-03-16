@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title></title>
-    <script src="../libs/d3.v3.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
     <style>
         .axis path,
         .axis line {
@@ -16,6 +17,17 @@
             clip-path: url(#clip);
         }
 
+        .rectSelection{
+              fill:none;
+              stroke-width:1;
+              stroke:black
+
+        }
+        .line {
+          fill: none;
+          stroke: red;
+          stroke-width: 1.5px;
+        }
 
     </style>
 
@@ -24,7 +36,7 @@
     <div id="vis"></div>
 
 
-	<script src = "linegraph.js"></script>
+    <script src = "linegraph.js"></script>
 
 
 </body>

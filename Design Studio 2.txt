@@ -1,0 +1,48 @@
+PART 1 - ANALYSIS
+
+Take a look at the population data. 
+
+1. What trends do you see in the data?
+- Data has negative years which needs to be filtered.
+- Data has null values
+- Data has to be trimmed from both the sides.
+- Data is stored in the form of string which has commas which needs to be filtered and parsed to integers
+
+2. Analyze how big the differences between various estimates are. 
+Do you see a trend, i.e., do the differences become smaller or larger over time?
+
+- By looking at the data, the large differences can be seen with the Population Reference Bureau's estimates.
+Maybe it's because the population estimates data is projected for few years resulting in the huge percentage difference.
+- The second huge difference seems to be with the Maddison's estimates. 
+ 
+3. Think about these differences relative to the estimates at the respective time points and in absolute terms. 
+When are the uncertainties the largest in absolute, when in relative terms?
+
+- After calculating both the Relative and and Absolute differences for the consensus for 1995 (as we have values for all the 5 estimates), 
+the average consensus sums up to 5,707,878,255.2
+Below the table which shows the difference for the 5 estimates
+
+              												Relative diff(In %)  Absolute diff
+US Census Bureau:      								 		0.20				 11,201,516       
+Population Reference Bureau:            					-0.91				 -52,121,745       
+United Nations Department of Economic and Social Affairs:   -0.09    			 -5,194,745       
+HYDE:           											0.27				 15,523,718       
+Maddison:       											0.54				 30,591,255       
+
+4. Do you think you can faithfully represent the uncertainty and the data in the same plot? Why, or why not? 
+
+- Yes we can plot it on the same graph. The uncertainty can be shown for a particular year for the estimates are available with a distinct color for each estimates.
+The difference on the points on the y axis for different estimates can show the relative difference in the estimates.
+
+
+5. What effect do you think will the linear interpolation have on the uncertainty?
+
+- Linear interpolation it relatively soothes the large differences thus plotting on the graph is made possible.
+
+6. Is linear interpolation a suitable method for this data?
+
+- Yes linear interpolation is the best way to represent the values on the graph. It aligns the estimates properly on the graph within the range of the axes.
+
+
+
+

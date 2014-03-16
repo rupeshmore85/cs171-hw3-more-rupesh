@@ -2,22 +2,22 @@
 <html>
 <head>
     <title></title>
-    <script src="../libs/d3.v3.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
     <style>
-        .axis path,
+     /*   .axis path,
         .axis line {
             fill: none;
             stroke: lightgrey; }
-
+    */
         .brush .extent {
             stroke: black;
             fill-opacity: 0.125;
             shape-rendering: crispEdges; }
-
+    
         .brush .handle {
             stroke: black;
             fill-opacity: 0.125; }
-
+    /*
         .timeArea {
             fill: steelblue;
 				}
@@ -32,23 +32,52 @@
             stroke-width:1;
 
         }
-
+*/
         .detailPath {
             stroke-width:2;
         }
 
-
-
         .detailArea {
-            stroke: none;
+            stroke: steelblue;
             fill:steelblue;
             fill-opacity:0.5;
+            clip-path: url(#clip);
         }
 
+
+        .axis path,
+
+        .axis line {
+          fill: none;
+          stroke: #000;
+          shape-rendering: crispEdges;
+        }
+        
+        .x.axis path {
+          display: blue;
+        }
+        
+        .line {
+          fill: none;
+          stroke: steelblue;
+          stroke-width: 1.5px;
+        }
+
+        .rectSelection{
+         fill:none;
+         stroke-width:1;
+         stroke:black
+
+        }
+        
     </style>
 
 </head>
 <body>
+<div id="dvBtns">
+    <input id="btnEvent1" type="button" value="Major"> Major Event happened in Women's health<br>
+    <input id="btnEvent2" type="button" value="Less tweets"> Tweets in early years about Women's health<br>
+ </div>
 <div id="visUN"></div>
 
 

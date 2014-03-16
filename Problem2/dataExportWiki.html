@@ -12,6 +12,8 @@
 
 <script>
     var convertToInt;
+var  tabledata;
+var dataElementArray = new Array ();
 
     $.ajax({
         url: "http://en.wikipedia.org/wiki/World_population_estimates",
@@ -25,11 +27,39 @@
             var content = root.find("#content"); // find all the nodes that have ID "content"
             var h2s = content.find(".mw-headline"); // search in all "content" nodes for nodes of class ".mw-headline"
 
-            $.each(h2s, function(index, value) {
-                console.log($(value).text()); // print text
+             tabledata= root.find(".wikitable");
+
+             cellvalues = tabledata.find("tbody tr td");
+
+             // add header to array
+
+              dataElementArray[0]='year,USCensus,PopulationBureau,UN,HYDE,Maddison';
+              var i =dataElementArray.length;
+
+              /** Add first 6 column values to array as
+               * a comma seperated values, ignore negative numbers
+               */
+             $.each(cellvalues, function(index, value) {
+              if( index > 119)
+              {
+
+               if(index % 12 ==0){
+                  dataElementArray[i]=convertToInt($(value).text().trim());
+
+              }
+              else if(index % 12 < 6){
+                  dataElementArray[i] += ","+convertToInt($(value).text().trim());
+              }else{
+
+                  i=dataElementArray.length;
+              }
+
+              }
+
+         //   console.log(convertToInt($(value).text())); // print text     
             });
-			
-			saveToFile(["Hello World"],"test.txt")
+      
+      saveToFile(dataElementArray,"World_population_estimates.csv")
         },
         error: function() {
             return console.log("error");
@@ -37,9 +67,14 @@
     });
 
     convertToInt = function(s) {
+      if(s == null || s == undefined || s == ""){
+        return "";
+      }else{
         return parseInt(s.replace(/,/g, ""), 10);
+      }
+        
     };
-	
+  
     /* takes an array of strings
        and writes them line by line into a file given by filename
      */
@@ -62,7 +97,7 @@
      String.prototype.endsWith = function(suffix) {
        return this.indexOf(suffix, this.length - suffix.length) !== -1;
      };
-	
+  
 
 
 
